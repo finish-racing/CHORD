@@ -1,0 +1,144 @@
+{
+  "project": "CHORD",
+  "handoff_created_utc": "2026-04-19T17:44:53Z",
+  "included_items": [
+    {
+      "name": "CHORD_PRISM_v1_Design_Handoff_v6_Final_Audited.docx",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_PRISM_v1_Design_Handoff_v6_Final_Audited.docx",
+      "archived_path": "artifacts/CHORD_PRISM_v1_Design_Handoff_v6_Final_Audited.docx"
+    },
+    {
+      "name": "CHORD_Process_Alignment_Update_v1.docx",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Process_Alignment_Update_v1.docx",
+      "archived_path": "artifacts/CHORD_Process_Alignment_Update_v1.docx"
+    },
+    {
+      "name": "CHORD_Process_Alignment_Update_v1.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Process_Alignment_Update_v1.md",
+      "archived_path": "artifacts/CHORD_Process_Alignment_Update_v1.md"
+    },
+    {
+      "name": "CHORD_README_FOR_CODEX_v1.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_README_FOR_CODEX_v1.md",
+      "archived_path": "artifacts/CHORD_README_FOR_CODEX_v1.md"
+    },
+    {
+      "name": "CHORD_README_FOR_CODEX_v6_Process_Aligned.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_README_FOR_CODEX_v6_Process_Aligned.md",
+      "archived_path": "artifacts/CHORD_README_FOR_CODEX_v6_Process_Aligned.md"
+    },
+    {
+      "name": "CHORD_Release_Control_Document_v1.docx",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Release_Control_Document_v1.docx",
+      "archived_path": "artifacts/CHORD_Release_Control_Document_v1.docx"
+    },
+    {
+      "name": "CHORD_Release_Control_Document_v1.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Release_Control_Document_v1.md",
+      "archived_path": "artifacts/CHORD_Release_Control_Document_v1.md"
+    },
+    {
+      "name": "CHORD_Release_Control_Document_v2.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Release_Control_Document_v2.md",
+      "archived_path": "artifacts/CHORD_Release_Control_Document_v2.md"
+    },
+    {
+      "name": "CHORD_Release_Tracker_v1.docx",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Release_Tracker_v1.docx",
+      "archived_path": "artifacts/CHORD_Release_Tracker_v1.docx"
+    },
+    {
+      "name": "CHORD_Release_Tracker_v1.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Release_Tracker_v1.md",
+      "archived_path": "artifacts/CHORD_Release_Tracker_v1.md"
+    },
+    {
+      "name": "CHORD_Release_Tracker_v2.md",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_Release_Tracker_v2.md",
+      "archived_path": "artifacts/CHORD_Release_Tracker_v2.md"
+    },
+    {
+      "name": "CHORD_UbuntuTestCyclePackage_v1",
+      "kind": "directory",
+      "source_path": "/mnt/data/CHORD_UbuntuTestCyclePackage_v1",
+      "archived_path": "artifacts/CHORD_UbuntuTestCyclePackage_v1"
+    },
+    {
+      "name": "CHORD_UbuntuTestCyclePackage_v1.zip",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_UbuntuTestCyclePackage_v1.zip",
+      "archived_path": "artifacts/CHORD_UbuntuTestCyclePackage_v1.zip"
+    },
+    {
+      "name": "CHORD_WaveB1_v1",
+      "kind": "directory",
+      "source_path": "/mnt/data/CHORD_WaveB1_v1",
+      "archived_path": "artifacts/CHORD_WaveB1_v1"
+    },
+    {
+      "name": "CHORD_WaveB1_v1.zip",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_WaveB1_v1.zip",
+      "archived_path": "artifacts/CHORD_WaveB1_v1.zip"
+    },
+    {
+      "name": "CHORD_WaveB2_v1",
+      "kind": "directory",
+      "source_path": "/mnt/data/CHORD_WaveB2_v1",
+      "archived_path": "artifacts/CHORD_WaveB2_v1"
+    },
+    {
+      "name": "CHORD_WaveB2_v1.zip",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_WaveB2_v1.zip",
+      "archived_path": "artifacts/CHORD_WaveB2_v1.zip"
+    },
+    {
+      "name": "CHORD_WaveC1_v1",
+      "kind": "directory",
+      "source_path": "/mnt/data/CHORD_WaveC1_v1",
+      "archived_path": "artifacts/CHORD_WaveC1_v1"
+    },
+    {
+      "name": "CHORD_WaveC1_v1.zip",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_WaveC1_v1.zip",
+      "archived_path": "artifacts/CHORD_WaveC1_v1.zip"
+    },
+    {
+      "name": "CHORD_WaveC2_v1",
+      "kind": "directory",
+      "source_path": "/mnt/data/CHORD_WaveC2_v1",
+      "archived_path": "artifacts/CHORD_WaveC2_v1"
+    },
+    {
+      "name": "CHORD_WaveC2_v1.zip",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_WaveC2_v1.zip",
+      "archived_path": "artifacts/CHORD_WaveC2_v1.zip"
+    },
+    {
+      "name": "CHORD_WaveD2_v1",
+      "kind": "directory",
+      "source_path": "/mnt/data/CHORD_WaveD2_v1",
+      "archived_path": "artifacts/CHORD_WaveD2_v1"
+    },
+    {
+      "name": "CHORD_WaveD2_v1.zip",
+      "kind": "file",
+      "source_path": "/mnt/data/CHORD_WaveD2_v1.zip",
+      "archived_path": "artifacts/CHORD_WaveD2_v1.zip"
+    }
+  ]
+}

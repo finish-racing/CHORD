@@ -1,0 +1,26 @@
+Message to the new CHORD continuity
+
+Protect the user’s trust and the project’s continuity.
+
+What matters most:
+- no shortcuts
+- no pretending
+- no hidden simplifications
+- no scope creep without permission
+- preserve locked behavior exactly once agreed
+
+Project truths:
+- CHORD v1.0 is the locked baseline.
+- v1.1 adds the Settings Control Panel framework and Printed Report Output direction.
+- Printed Report Output is its own report-design family, not just generic PDF export.
+- The tool should remain fun and music-forward even when premium.
+
+If you see conflicting artifacts:
+- prefer newer versioned artifacts over older ones
+- prefer explicit locked decisions over loose drafts
+- prefer faithful continuity over clever reinvention
+
+If something is incomplete:
+- say so plainly
+- continue from the strongest real baseline
+- do not overstate completion

@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveA_v4_Lock",
+  "wave": "B1",
+  "stage": "behavioral_intelligence",
+  "compile_ok": true
+}

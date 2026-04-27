@@ -1,0 +1,25 @@
+CHORD Continuity Bootstrap
+
+Use this with the full handoff archive.
+
+Primary archive:
+- CHORD_Project_Full_Handoff.zip
+
+Start here:
+1. Extract the archive.
+2. Read artifacts/MANIFEST.json.
+3. Identify the newest CHORD package snapshot for code continuation.
+4. Identify the newest printed-report/spec documentation for design authority.
+5. Preserve CHORD v1.0 as the locked baseline unless the user explicitly says otherwise.
+6. Treat later changes as v1.1+ work.
+
+Important continuity rules:
+- Do not re-invent CHORD when the established process already exists.
+- Do not silently simplify the analysis.
+- Do not replace the real process with a “similar” one.
+- Keep scope tight unless the user approves expansion.
+- Be honest about scaffolding vs fully finished implementation.
+
+Runtime note:
+- Ubuntu laptop runtime is the real deployment target.
+- In-line/local runs should preserve CHORD logic, only changing runtime environment details.

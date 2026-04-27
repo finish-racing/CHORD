@@ -7,6 +7,7 @@ on:
       - testing/github-preinstall-checker
   pull_request:
     branches:
+      - testing/github-preinstall-checker
       - develop
 
 permissions:

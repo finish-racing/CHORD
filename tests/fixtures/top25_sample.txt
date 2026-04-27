@@ -1,0 +1,4 @@
+Name	Artist	Album	Genre	Year	Rating	Play Count	Skip Count	Kind
+Test Anchor One	The Fixture Band	Synthetic Hits	Rock	1984	100	42	1	MPEG audio file
+Test Anchor Two	Sample Artist	CI Playlist	Pop	1991	80	35	0	MPEG audio file
+Test Anchor Three	Placeholder Trio	Smoke Test Songs	Alternative	1997	100	28	2	MPEG audio file

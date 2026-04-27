@@ -24,23 +24,37 @@ Added on `testing/github-preinstall-checker` only:
 - `tests/fixtures/top25_sample.txt`
 - `tests/fixtures/playlist_sample.txt`
 
-### Current validation target
+### Dependency repair discovered by checker
 
-The checker attempts to verify:
+- First observed run failed because `httpx` was imported by `chord.integrations.http_client` but was not listed in `pyproject.toml`.
+- Added missing runtime dependencies on this branch only: `httpx>=0.27` and `jinja2>=3.1`.
 
+### Successful checker run
+
+Workflow run `24971955865` completed successfully.
+
+Validated in GitHub Actions:
+
+- PostgreSQL service container initialization,
 - package installation in a workspace-local venv,
 - CI-local config generation,
-- PostgreSQL-backed schema initialization,
 - source compilation,
 - core module imports,
 - CLI help,
+- database schema initialization,
 - run creation,
+- fixture Top 25 import,
 - fixture playlist import,
 - quiz submission,
 - aggregate build,
 - Uvicorn app startup,
 - `/health` response,
+- `/runs` response,
 - artifact upload from `.ci/runtime`.
+
+### Current validation limit
+
+This proves GitHub Actions can perform a pre-install smoke check. It does not prove production Ubuntu installer behavior, systemd behavior, nginx behavior, or the final Ubuntu laptop acceptance cycle.
 
 ### Explicit non-changes
 

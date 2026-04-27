@@ -1,0 +1,91 @@
+name: GitHub Real-Data Smoke Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - testing/github-preinstall-checker
+    paths:
+      - tests/real_data/**
+      - scripts/github_real_data_smoke_test.sh
+      - installer/install_chord_github_actions.sh
+      - .github/workflows/github-real-data-smoke-test.yml
+      - pyproject.toml
+  pull_request:
+    branches:
+      - testing/github-preinstall-checker
+    paths:
+      - tests/real_data/**
+      - scripts/github_real_data_smoke_test.sh
+      - installer/install_chord_github_actions.sh
+      - .github/workflows/github-real-data-smoke-test.yml
+      - pyproject.toml
+
+permissions:
+  contents: read
+
+jobs:
+  real-data-smoke-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: chord
+          POSTGRES_PASSWORD: change_me
+          POSTGRES_DB: chord
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U chord -d chord"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      CHORD_DATABASE_URL: postgresql+psycopg://chord:change_me@localhost:5432/chord
+      CHORD_CI_DIR: ${{ github.workspace }}/.ci
+      CHORD_RUNTIME_DIR: ${{ github.workspace }}/.ci/runtime
+      CHORD_VENV_DIR: ${{ github.workspace }}/.ci/venv
+      CHORD_CONFIG_FILE: ${{ github.workspace }}/.ci/runtime/config.toml
+      CHORD_REALDATA_DIR: ${{ github.workspace }}/tests/real_data
+      CHORD_REALDATA_RESULT_DIR: ${{ github.workspace }}/.ci/runtime/real_data_result
+      CHORD_REALDATA_ALLOW_SINGLE_FILE_AS_TOP25: "1"
+      CHORD_DEBUG: "true"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify real-data inputs are present
+        run: |
+          test -f tests/real_data/quiz_answers.json
+          test -f tests/real_data/top25_real.txt || test -f tests/real_data/playlist_real.txt
+          test -d tests/real_data/playlists || test -f tests/real_data/playlist_real.txt
+
+      - name: Run GitHub Actions installer
+        run: |
+          bash installer/install_chord_github_actions.sh
+
+      - name: Run real-data smoke test
+        run: |
+          bash scripts/github_real_data_smoke_test.sh
+
+      - name: Upload CHORD real-data smoke artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chord-real-data-smoke-artifacts
+          path: |
+            .ci/runtime/install_summary.json
+            .ci/runtime/config.toml
+            .ci/runtime/logs/**
+            .ci/runtime/debug/**
+            .ci/runtime/real_data_result/**
+          if-no-files-found: warn

@@ -62,6 +62,9 @@ if [ "${#PLAYLIST_ARGS[@]}" -eq 0 ]; then
   exit 2
 fi
 
+printf '%s\n' "$SELECTED_TOP25" > "$RESULT_DIR/top25_input_path.txt"
+printf '%s\n' "${PLAYLIST_INPUTS[@]}" > "$RESULT_DIR/playlist_input_paths.txt"
+
 python -m compileall src
 python - <<'PY'
 import importlib
@@ -123,8 +126,8 @@ python - <<PY
 import json, hashlib
 from pathlib import Path
 result_dir = Path('$RESULT_DIR')
-selected_top25 = Path('$SELECTED_TOP25')
-playlist_inputs = [Path(p) for p in ${PLAYLIST_INPUTS[@]@Q}]
+selected_top25 = Path((result_dir / 'top25_input_path.txt').read_text().strip())
+playlist_inputs = [Path(line.strip()) for line in (result_dir / 'playlist_input_paths.txt').read_text().splitlines() if line.strip()]
 
 def fingerprint(path):
     h = hashlib.sha256()

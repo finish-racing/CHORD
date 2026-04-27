@@ -1,0 +1,10 @@
+{
+  "package": "Ubuntu Test Cycle Package",
+  "purpose": "Final handoff bundle for real Ubuntu laptop installation and full workflow testing",
+  "required_test_docs": [
+    "docs/WHAT_TO_TEST.md",
+    "docs/EXPECTED_OUTPUTS.md",
+    "docs/KNOWN_RISKS_FINAL_TEST.md",
+    "docs/FINAL_RUNBOOK.md"
+  ]
+}

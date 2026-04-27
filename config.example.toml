@@ -1,0 +1,57 @@
+[app]
+name = "CHORD"
+environment = "development"
+debug = false
+base_dir = "/var/lib/chord"
+log_dir = "/var/log/chord"
+config_dir = "/etc/chord"
+release_version = "0.1.0"
+
+[database]
+url = "postgresql+psycopg://chord:change_me@localhost:5432/chord"
+connect_timeout_seconds = 10
+pool_size = 5
+max_overflow = 10
+
+[debug]
+enabled = false
+artifact_dir = "/var/lib/chord/debug"
+dump_parsed_rows = true
+dump_normalized_rows = true
+dump_run_state = true
+dump_score_snapshots = true
+http_trace = false
+
+[paths]
+upload_dir = "/var/lib/chord/uploads"
+cache_dir = "/var/lib/chord/cache"
+export_dir = "/var/lib/chord/exports"
+state_dir = "/var/lib/chord/state"
+
+[web]
+host = "0.0.0.0"
+port = 8000
+cors_origins = ["*"]
+
+[lastfm]
+enabled = false
+# Set enabled = true and provide credentials to activate official Last.fm enrichment
+api_key = ""
+shared_secret = ""
+api_root = "https://ws.audioscrobbler.com/2.0"
+
+[musicbrainz]
+enabled = false
+# Set enabled = true to activate MusicBrainz resolution
+api_root = "https://musicbrainz.org/ws/2"
+user_agent = "CHORD/0.1.0 (ubuntu build)"
+
+[acousticbrainz]
+enabled = false
+# Set enabled = true to activate AcousticBrainz lookups
+api_root = "https://acousticbrainz.org/api/v1"
+
+[openai]
+enabled = false
+api_key = ""
+model = "gpt-5.4"

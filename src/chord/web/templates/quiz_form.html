@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h1>Curator quiz for run #{{ run_id }}</h1>
+  <form method="post" action="/runs/{{ run_id }}/quiz-form">
+    {% for q in quiz.questions %}
+      <div class="question-card">
+        <div class="question-title">{{ q.question }}</div>
+        <div class="option-grid">
+          {% for opt in q.options %}
+            <label class="option-pill">
+              <input type="radio" name="{{ q.key }}" value="{{ opt }}" required>
+              <span>{{ opt }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+    <button class="btn primary" type="submit">Save quiz answers</button>
+  </form>
+</section>
+{% endblock %}

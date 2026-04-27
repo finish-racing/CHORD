@@ -1,0 +1,16 @@
+{
+  "base_from": "/mnt/data/CHORD_InstallerSystem_v1",
+  "package": "Final Documentation and Operator Package",
+  "compile_ok": true,
+  "docs_added": [
+    "docs/DEVELOPER_README.md",
+    "docs/OPERATOR_ADMIN_README.md",
+    "docs/CONFIG_REFERENCE.md",
+    "docs/DEBUG_MODE_GUIDE.md",
+    "docs/RELEASE_NOTES_MASTER.md",
+    "docs/KNOWN_ISSUES.md",
+    "docs/TEST_INSTRUCTIONS_FINAL.md",
+    "docs/ARTIFACT_COLLECTION_GUIDE.md",
+    "docs/CHANGELOG.md"
+  ]
+}

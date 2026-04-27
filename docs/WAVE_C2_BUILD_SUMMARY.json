@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveC1_v1",
+  "wave": "C2",
+  "stage": "curated_playlist_builder",
+  "compile_ok": true
+}

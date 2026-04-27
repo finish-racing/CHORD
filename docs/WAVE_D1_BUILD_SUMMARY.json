@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveC4_v1",
+  "wave": "D1",
+  "stage": "openai_integration",
+  "compile_ok": true
+}

@@ -1,0 +1,16 @@
+[Unit]
+Description=CHORD Web Application
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=chord
+Group=chord
+WorkingDirectory=/opt/chord/current
+EnvironmentFile=/etc/chord/chord.env
+ExecStart=/opt/chord/current/.venv/bin/uvicorn chord.web.api:api --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

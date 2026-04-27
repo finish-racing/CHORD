@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveB3_v1",
+  "wave": "C1",
+  "stage": "prism_engine_core",
+  "compile_ok": true
+}

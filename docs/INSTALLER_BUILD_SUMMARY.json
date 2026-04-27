@@ -1,0 +1,12 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveD2_v1",
+  "package": "Installer and Upgrade System",
+  "compile_ok": true,
+  "scripts": [
+    "installer/install_chord.sh",
+    "installer/deploy_release.sh",
+    "installer/rollback_release.sh",
+    "installer/soft_reset.sh",
+    "installer/hard_reset.sh"
+  ]
+}

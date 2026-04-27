@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveB2_v1",
+  "wave": "B3",
+  "stage": "identity_similarity_intelligence",
+  "compile_ok": true
+}

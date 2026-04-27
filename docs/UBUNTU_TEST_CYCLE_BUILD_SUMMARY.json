@@ -1,0 +1,13 @@
+{
+  "base_from": "/mnt/data/CHORD_DocumentationPackage_v1",
+  "package": "Ubuntu Test Cycle Package",
+  "compile_ok": true,
+  "added_docs": [
+    "docs/UBUNTU_TEST_CYCLE_PACKAGE_SCOPE.md",
+    "docs/WHAT_TO_TEST.md",
+    "docs/EXPECTED_OUTPUTS.md",
+    "docs/KNOWN_RISKS_FINAL_TEST.md",
+    "docs/FINAL_RUNBOOK.md",
+    "docs/UBUNTU_TEST_CYCLE_SUMMARY.json"
+  ]
+}

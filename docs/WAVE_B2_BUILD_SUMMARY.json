@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveB1_v1",
+  "wave": "B2",
+  "stage": "external_enrichment",
+  "compile_ok": true
+}

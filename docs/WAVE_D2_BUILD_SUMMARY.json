@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveD1_v1",
+  "wave": "D2",
+  "stage": "hardening_and_diagnostics",
+  "compile_ok": true
+}

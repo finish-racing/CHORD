@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveC3_v1",
+  "wave": "C4",
+  "stage": "full_web_interface",
+  "compile_ok": true
+}

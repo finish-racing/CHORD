@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h1>Create a new CHORD run</h1>
+  <form method="post" action="/new-run">
+    <div class="field-grid">
+      <label>
+        <span>Mode</span>
+        <select name="mode">
+          <option value="analysis">analysis</option>
+        </select>
+      </label>
+      <label>
+        <span>Notes</span>
+        <input type="text" name="notes" placeholder="Optional notes">
+      </label>
+    </div>
+    <button class="btn primary" type="submit">Create run</button>
+  </form>
+</section>
+{% endblock %}

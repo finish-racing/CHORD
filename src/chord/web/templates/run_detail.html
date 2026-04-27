@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="run-header panel">
+  <div class="run-topline">
+    <div>
+      <h1>Run #{{ status.run_id }}</h1>
+      <p class="muted">Status: {{ status.status }}</p>
+    </div>
+    <div class="action-row">
+      <a class="btn" href="/runs/{{ status.run_id }}/upload-form">Upload</a>
+      <a class="btn" href="/runs/{{ status.run_id }}/quiz-form">Quiz</a>
+      <form method="post" action="/runs/{{ status.run_id }}/pipeline/run-all">
+        <button class="btn primary" type="submit">Run pipeline</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="thermometer-wrap">
+    <div class="thermo-head">
+      <span>Progress</span>
+      <span>{{ progress.percent }}%</span>
+    </div>
+    <div class="thermometer">
+      <div class="thermometer-fill" style="width: {{ progress.percent }}%"></div>
+    </div>
+    <div class="thermo-label">{{ progress.label }}</div>
+    <div class="step-row">
+      {% for step in progress.steps %}
+        <div class="step-pill {% if step.done %}done{% elif step.current %}current{% endif %}">{{ step.label }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="dashboard-grid">
+  <div class="panel stat-panel">
+    <h2>Run status</h2>
+    <div class="stat-list">
+      <div><span>Playlists</span><strong>{{ status.playlist_count }}</strong></div>
+      <div><span>Aggregates</span><strong>{{ "Yes" if status.has_aggregates else "No" }}</strong></div>
+      <div><span>Enrichment</span><strong>{{ "Yes" if status.has_enrichment else "No" }}</strong></div>
+      <div><span>Identity</span><strong>{{ "Yes" if status.has_identity else "No" }}</strong></div>
+      <div><span>PRISM</span><strong>{{ "Yes" if status.has_balanced_recommendations else "No" }}</strong></div>
+      <div><span>Curated</span><strong>{{ "Yes" if status.has_balanced_curated_playlist else "No" }}</strong></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Behavioral aggregates</h2>
+    {% if aggregates %}
+      <pre class="data-card">{{ aggregates | tojson(indent=2) }}</pre>
+    {% else %}
+      <p class="muted">No aggregate payload yet.</p>
+    {% endif %}
+  </div>
+
+  <div class="panel">
+    <h2>Enrichment summary</h2>
+    {% if enrichment %}
+      <pre class="data-card">{{ enrichment | tojson(indent=2) }}</pre>
+    {% else %}
+      <p class="muted">No enrichment summary yet.</p>
+    {% endif %}
+  </div>
+
+  <div class="panel">
+    <h2>Identity profile</h2>
+    {% if identity %}
+      <pre class="data-card">{{ identity | tojson(indent=2) }}</pre>
+    {% else %}
+      <p class="muted">No identity profile yet.</p>
+    {% endif %}
+  </div>
+
+  <div class="panel wide">
+    <h2>PRISM recommendations</h2>
+    {% if prism and prism.items %}
+      <div class="table-wrap">
+        <table class="pretty-table">
+          <thead><tr><th>#</th><th>Track</th><th>Confidence</th><th>Explanation</th></tr></thead>
+          <tbody>
+            {% for item in prism.items %}
+              <tr>
+                <td>{{ item.rank }}</td>
+                <td>{{ item.canonical_track_id }}</td>
+                <td>{{ item.confidence_score }}</td>
+                <td>{{ item.explanation_text }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="action-row">
+        <a class="btn" href="/runs/{{ status.run_id }}/exports/results?mode=balanced">Export recommendations JSON</a>
+      </div>
+    {% else %}
+      <p class="muted">No PRISM output yet.</p>
+    {% endif %}
+  </div>
+
+  <div class="panel wide">
+    <h2>Curated playlist</h2>
+    {% if curated and curated.items %}
+      <div class="table-wrap">
+        <table class="pretty-table">
+          <thead><tr><th>#</th><th>Track</th><th>Source</th><th>Role</th><th>Reason</th></tr></thead>
+          <tbody>
+            {% for item in curated.items %}
+              <tr>
+                <td>{{ item.rank }}</td>
+                <td>{{ item.canonical_track_id }}</td>
+                <td>{{ item.source_type }}</td>
+                <td>{{ item.role_label }}</td>
+                <td>{{ item.inclusion_reason }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="action-row">
+        <a class="btn" href="/runs/{{ status.run_id }}/exports/curated?mode=balanced">Export curated JSON</a>
+      </div>
+    {% else %}
+      <p class="muted">No curated playlist yet.</p>
+    {% endif %}
+  </div>
+
+  {% if debug_enabled %}
+  <div class="panel wide">
+    <h2>Debug artifacts</h2>
+    {% if debug_artifacts %}
+      <pre class="data-card">{{ debug_artifacts | tojson(indent=2) }}</pre>
+    {% else %}
+      <p class="muted">No debug artifacts yet.</p>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

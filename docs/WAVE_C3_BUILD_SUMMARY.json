@@ -1,0 +1,6 @@
+{
+  "base_from": "/mnt/data/CHORD_WaveC2_v1",
+  "wave": "C3",
+  "stage": "full_cli",
+  "compile_ok": true
+}

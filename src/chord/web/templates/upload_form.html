@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <h1>Upload playlists for run #{{ run_id }}</h1>
+  <form method="post" action="/runs/{{ run_id }}/upload-form" enctype="multipart/form-data">
+    <div class="upload-card">
+      <label>
+        <span>Required: Top 25 Most Played</span>
+        <input type="file" name="top25" required>
+      </label>
+      <label>
+        <span>Required: One or more playlists</span>
+        <input type="file" name="playlists" multiple required>
+      </label>
+    </div>
+    <button class="btn primary" type="submit">Upload and import</button>
+  </form>
+</section>
+{% endblock %}

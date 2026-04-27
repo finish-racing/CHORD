@@ -1,0 +1,8 @@
+{
+  "project_type": "reliable_songs",
+  "recommendation_mistake": "similar_but_wrong",
+  "recommendation_goal": "missing_essentials",
+  "belonging_rule": "same_mood",
+  "balance_preference": "familiar_some_discovery",
+  "avoid_false_positive": "repeat_of_existing"
+}

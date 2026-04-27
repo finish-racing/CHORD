@@ -1,0 +1,8 @@
+{
+  "project_type": "generation_soundtrack",
+  "recommendation_mistake": "same_artist",
+  "recommendation_goal": "tasteful_surprises",
+  "belonging_rule": "same_kind_of_person",
+  "balance_preference": "balanced",
+  "avoid_false_positive": "technically_similar_but_wrong"
+}

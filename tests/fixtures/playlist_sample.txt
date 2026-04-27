@@ -1,0 +1,4 @@
+Name	Artist	Album	Genre	Year	Rating	Play Count	Skip Count	Kind
+Test Anchor One	The Fixture Band	Synthetic Hits	Rock	1984	100	42	1	MPEG audio file
+Discovery Candidate One	Another Fixture	Generated Mix	New Wave	1986	80	12	0	MPEG audio file
+Discovery Candidate Two	Synthetic Duo	Generated Mix	College Rock	1993	60	9	1	MPEG audio file

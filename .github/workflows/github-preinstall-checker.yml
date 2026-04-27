@@ -1,0 +1,77 @@
+name: GitHub Pre-Install Checker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - testing/github-preinstall-checker
+  pull_request:
+    branches:
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  github-preinstall-checker:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: chord
+          POSTGRES_PASSWORD: change_me
+          POSTGRES_DB: chord
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U chord -d chord"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      CHORD_DATABASE_URL: postgresql+psycopg://chord:change_me@localhost:5432/chord
+      CHORD_CI_DIR: ${{ github.workspace }}/.ci
+      CHORD_RUNTIME_DIR: ${{ github.workspace }}/.ci/runtime
+      CHORD_VENV_DIR: ${{ github.workspace }}/.ci/venv
+      CHORD_CONFIG_FILE: ${{ github.workspace }}/.ci/runtime/config.toml
+      CHORD_DEBUG: "true"
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Show branch and commit
+        run: |
+          git status --short
+          git rev-parse --abbrev-ref HEAD || true
+          git rev-parse HEAD
+
+      - name: Run GitHub Actions installer
+        run: |
+          bash installer/install_chord_github_actions.sh
+
+      - name: Run pre-install smoke test
+        run: |
+          bash scripts/github_preinstall_smoke_test.sh
+
+      - name: Upload CHORD CI artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chord-github-preinstall-artifacts
+          path: |
+            .ci/runtime/install_summary.json
+            .ci/runtime/smoke_test_result.json
+            .ci/runtime/web_runs.json
+            .ci/runtime/logs/**
+            .ci/runtime/debug/**
+            .ci/runtime/config.toml
+          if-no-files-found: warn

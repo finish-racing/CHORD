@@ -52,9 +52,36 @@ Validated in GitHub Actions:
 - `/runs` response,
 - artifact upload from `.ci/runtime`.
 
+### Real-data smoke-test harness added
+
+Added on `testing/github-preinstall-checker` only:
+
+- `.github/workflows/github-real-data-smoke-test.yml`
+- `scripts/github_real_data_smoke_test.sh`
+- `tests/real_data/README.md`
+- `tests/real_data/.gitkeep`
+- `tests/real_data/quiz_answers.template.json`
+
+The real-data harness is designed to run after the user provides:
+
+- `tests/real_data/quiz_answers.json`
+- either `tests/real_data/top25_real.txt` plus one or more files under `tests/real_data/playlists/`, or a single fallback `tests/real_data/playlist_real.txt`.
+
+Expected artifact name:
+
+- `chord-real-data-smoke-artifacts`
+
+Expected result directory inside the artifact:
+
+- `real_data_result/`
+
+Expected result files include aggregates, identity, PRISM results, curated playlist, diagnostics, debug index, health response, and web run status.
+
 ### Current validation limit
 
 This proves GitHub Actions can perform a pre-install smoke check. It does not prove production Ubuntu installer behavior, systemd behavior, nginx behavior, or the final Ubuntu laptop acceptance cycle.
+
+The real-data harness has been implemented but has not yet been run with user-provided real data.
 
 ### Explicit non-changes
 

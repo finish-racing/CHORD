@@ -1,0 +1,70 @@
+name: Validate CHORD integration
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/validate-chord-integration.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify expected release paths
+        run: |
+          test -f pyproject.toml
+          test -f config.example.toml
+          test -f sql/schema_wave_a.sql
+          test -f alembic/versions/0001_wave_a.py
+          test -f src/chord/cli.py
+          test -f src/chord/web/api.py
+          test -f installer/install_chord.sh
+          test -f docs/FINAL_RUNBOOK.md
+
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Compile and import package
+        run: |
+          python -m compileall src
+          python - <<'PY'
+          import importlib
+          modules = [
+              'chord',
+              'chord.cli',
+              'chord.config',
+              'chord.db.models',
+              'chord.db.repositories',
+              'chord.services.run_service',
+              'chord.services.feature_service',
+              'chord.services.enrichment_service',
+              'chord.services.identity_service',
+              'chord.services.prism_service',
+              'chord.services.curated_playlist_service',
+              'chord.services.openai_service',
+              'chord.services.diagnostics_service',
+              'chord.web.api',
+          ]
+          for name in modules:
+              importlib.import_module(name)
+          print('CHORD integration imports OK')
+          PY
+
+      - name: Validate CLI entry point
+        run: |
+          chord --help
